@@ -1,0 +1,35 @@
+<div class="min-h-dvh bg-base-100">
+  <div class="navbar bg-base-300 shadow-sm">
+    <div class="flex-1">
+      <span class="btn btn-ghost text-lg normal-case">Angular Signal Forms</span>
+      <span class="badge badge-primary badge-sm ml-1">v22</span>
+    </div>
+  </div>
+
+  <main class="p-4 md:p-8 flex flex-col items-center gap-6">
+    <div role="tablist" class="tabs tabs-boxed">
+      <button
+        role="tab"
+        class="tab"
+        [class.tab-active]="tab() === 'signup'"
+        (click)="select('signup')"
+      >
+        Signup form
+      </button>
+      <button
+        role="tab"
+        class="tab"
+        [class.tab-active]="tab() === 'profile'"
+        (click)="select('profile')"
+      >
+        Profile (nested + array)
+      </button>
+    </div>
+
+    @if (tab() === 'signup') {
+      <app-signup-form />
+    } @else {
+      <app-profile-form />
+    }
+  </main>
+</div>

@@ -1,0 +1,78 @@
+<div class="card bg-base-200 w-full max-w-md shadow-xl mx-auto">
+  <div class="card-body">
+    <h2 class="card-title">Your profile</h2>
+    <p class="text-sm opacity-70 mb-2">Nested fields and arrays are just data.</p>
+
+    <form (submit)="onSubmit(); $event.preventDefault()" class="flex flex-col gap-4">
+      <!-- Name -->
+      <div class="form-control w-full">
+        <label class="label" for="name">
+          <span class="label-text font-semibold">Name</span>
+        </label>
+        <input id="name" type="text" [formField]="profileForm.name" class="input input-bordered w-full" />
+        @if (profileForm.name().touched() && profileForm.name().invalid()) {
+          @for (error of profileForm.name().errors(); track error.kind) {
+            <span class="label-text-alt text-error block mt-1">{{ error.message }}</span>
+          }
+        }
+      </div>
+
+      <!-- Nested address -->
+      <div class="grid grid-cols-2 gap-3">
+        <div class="form-control w-full">
+          <label class="label" for="city"><span class="label-text font-semibold">City</span></label>
+          <input id="city" type="text" [formField]="profileForm.address.city" class="input input-bordered w-full" />
+          @if (profileForm.address.city().touched() && profileForm.address.city().invalid()) {
+            <span class="label-text-alt text-error block mt-1">City is required.</span>
+          }
+        </div>
+        <div class="form-control w-full">
+          <label class="label" for="country"><span class="label-text font-semibold">Country</span></label>
+          <input id="country" type="text" [formField]="profileForm.address.country" class="input input-bordered w-full" />
+          @if (profileForm.address.country().touched() && profileForm.address.country().invalid()) {
+            <span class="label-text-alt text-error block mt-1">Country is required.</span>
+          }
+        </div>
+      </div>
+
+      <!-- Array of skills via applyEach -->
+      <div class="form-control w-full">
+        <span class="label-text font-semibold mb-1">Skills</span>
+        @for (skill of profileForm.skills; track $index) {
+          <div class="flex items-center gap-2 mb-2">
+            <input type="text" [formField]="skill.name" class="input input-bordered w-full" placeholder="e.g. Angular" />
+            <button
+              type="button"
+              class="btn btn-square btn-ghost"
+              (click)="removeSkill($index)"
+              [disabled]="profileModel().skills.length === 1"
+              aria-label="Remove skill"
+            >
+              &times;
+            </button>
+          </div>
+          @if (skill.name().touched() && skill.name().invalid()) {
+            @for (error of skill.name().errors(); track error.kind) {
+              <span class="label-text-alt text-error block -mt-1 mb-2">{{ error.message }}</span>
+            }
+          }
+        }
+        <button type="button" class="btn btn-outline btn-sm w-fit" (click)="addSkill()">+ Add skill</button>
+      </div>
+
+      <button type="submit" class="btn btn-primary btn-block" [disabled]="profileForm().invalid()">
+        Save profile
+      </button>
+    </form>
+
+    @if (saved(); as data) {
+      <div class="alert alert-success mt-4">
+        <span>Saved profile for {{ data.name }}.</span>
+      </div>
+    }
+
+    <div class="mockup-code text-xs mt-4">
+      <pre><code>{{ profileForm().value() | json }}</code></pre>
+    </div>
+  </div>
+</div>
