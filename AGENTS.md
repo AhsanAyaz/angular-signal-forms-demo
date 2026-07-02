@@ -10,6 +10,10 @@ When the presenter says **"run step N"** (N is 1..6), or `/run-step N`:
 3. Apply each `FILE:` block verbatim, write `STEP-N-EXPLAINED.md` from the spec's
    Explanation block, and print a short recap.
 
+Everything needed ships in this repo (no global install): the Claude side has both a skill
+(`.claude/skills/run-step`) and an agent (`.claude/agents/step-runner.md`); the Gemini/Antigravity
+side has `.gemini/commands/run-step.toml`. All of them defer to `.video-steps/RUNNER.md`.
+
 The step specs are pre-baked and are the single source of truth. Do not improvise the code,
 do not run git, and do not rebuild (the dev server hot-reloads). Keep each EXPLAINED file at
 12 lines or fewer. No em-dashes anywhere.
