@@ -83,8 +83,8 @@ export class SignupForm {
   }
 
   reset() {
+    this.signupForm().reset({ email: '', password: '', confirmPassword: '' })
     this.submitted.set(null);
-    this.signupModel.set({ email: '', password: '', confirmPassword: '' });
   }
 }
 ```
