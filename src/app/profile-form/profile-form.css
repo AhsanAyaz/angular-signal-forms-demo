@@ -1,0 +1,7 @@
+.mockup-code pre:before {
+  margin-right: 0;
+}
+
+.mockup-code pre {
+  padding-left: 16px;
+}
