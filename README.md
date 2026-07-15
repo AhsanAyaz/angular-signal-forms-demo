@@ -3,6 +3,30 @@
 Companion app for the "Angular Signal Forms Tutorial" video. You build it up one step at a
 time, with an AI agent, exactly like in the video.
 
+---
+
+## 📚 Mastering Angular Signals
+
+<a href="https://leanpub.com/mastering-angular-signals/c/V22LAUNCH?utm_source=github&utm_medium=readme&utm_campaign=v22-launch" target="_blank">
+  <img src="public/book-cover.jpg" alt="Mastering Angular Signals Book Cover" width="180" align="right" style="margin-left: 20px;" />
+</a>
+
+This demo is companion code for **Mastering Angular Signals**, the focused, v22-current guide to
+reactive Angular: Signals for state, performance, and a step-by-step Observables to Signals
+migration, with a foreword from the Angular team.
+
+👉 **[Get it on Leanpub (launch price, DRM-free PDF + EPUB)](https://leanpub.com/mastering-angular-signals/c/V22LAUNCH?utm_source=github&utm_medium=readme&utm_campaign=v22-launch)** - also in **[paperback on Amazon](https://www.amazon.com/dp/B0FF9LSHJN/)**.
+
+What you will learn:
+
+- ⚡ Core reactive APIs: `signal`, `computed`, `effect`, `linkedSignal`
+- 📡 Declarative async: `resource`, `rxResource`, `httpResource`
+- 📋 Modern forms: schema-validated Signal Forms
+- 🛠️ Seamless migration: Observables to Signals, step by step
+- 🚀 Zoneless architecture and change-detection performance
+
+---
+
 ## Work along with me
 
 1. Clone this repo and check out the `start` branch (scaffold only):
